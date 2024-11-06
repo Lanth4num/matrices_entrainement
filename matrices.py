@@ -1,4 +1,5 @@
 import math as math
+import time
 import os as os
 import sys
 import random as random
@@ -69,6 +70,7 @@ while input() != "q":
     print_matrice(first_matrice)
     print("x")
     print_matrice(second_matrice)
+    start = time.time()
 
     # calculate result
     result = matrice_mul(first_matrice, second_matrice)
@@ -77,7 +79,12 @@ while input() != "q":
     input()
 
     # show results
+    end = time.time()
     print("=")
     print_matrice(result)
+    time_taken = int(end-start)
+    m_taken = int(time_taken//60)
+    s_taken = int(time_taken%60)
+    print(f"({m_taken}min {s_taken}s)")
 
 clear_scr()
