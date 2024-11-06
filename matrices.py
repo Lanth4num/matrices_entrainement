@@ -29,12 +29,16 @@ def new_random_matrice(row:int, col:int)->list:
 def print_matrice(matrice:list)->None:
     for i, row in enumerate(matrice):
         end_of_loop = (i == len(matrice)-1)
+        # print opening brackets
         print( "⎡" if i==0 else "⎣" if end_of_loop else "⎢", end="")
         for j, col in enumerate(row):
             start_of_line = (j == 0)
-            print(f"{col:>4}" if not start_of_line else f"{col:>2}", end="")
+            # printing matrix elements
+            print(f"{col:>4}" if not start_of_line else f"{col:>3}", end="")
+        # print closing brackets
         print("", "⎤" if i==0 else "⎦" if i==len(matrice)-1 else "⎥")
     return None
+
 
 def matrice_mul(matrice1, matrice2):
     res_matrice = []
