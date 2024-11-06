@@ -1,8 +1,7 @@
-import math as math
 import time
-import os as os
+import os
 import sys
-import random as random
+import random
 
 clear_scr = lambda: os.system('clear')
 if sys.platform == "win32":
