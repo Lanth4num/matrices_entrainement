@@ -28,11 +28,13 @@ def new_random_matrice(row:int, col:int)->list:
     return lst
 
 def print_matrice(matrice:list)->None:
-    for row in matrice:
-        print( "|", end="")
-        for col in row:
-            print(f"{col}\t", end="")
-        print("|")
+    for i, row in enumerate(matrice):
+        end_of_loop = (i == len(matrice)-1)
+        print( "⎡" if i==0 else "⎣" if end_of_loop else "⎢", end="")
+        for j, col in enumerate(row):
+            start_of_line = (j == 0)
+            print(f"{col:>4}" if not start_of_line else f"{col:>2}", end="")
+        print("", "⎤" if i==0 else "⎦" if i==len(matrice)-1 else "⎥")
     return None
 
 def matrice_mul(matrice1, matrice2):
@@ -85,6 +87,8 @@ while input() != "q":
     time_taken = int(end-start)
     m_taken = int(time_taken//60)
     s_taken = int(time_taken%60)
-    print(f"({m_taken}min {s_taken}s)")
+    print(f"\n({m_taken}min {s_taken}s)")
+
+    print("\nVoulez vous continuer (q pour quitter)? ", end="")
 
 clear_scr()
