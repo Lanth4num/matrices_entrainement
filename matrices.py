@@ -22,7 +22,7 @@ def new_random_matrice(row:int, col:int)->list:
         # append the column number
         lst.append([]);
         for _ in range(col):
-            lst[i].append(random.randint(0, 9))
+            lst[i].append(random.randint(-6, 6))
 
     return lst
 
