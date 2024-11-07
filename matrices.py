@@ -9,14 +9,18 @@ if sys.platform == "win32":
 
 
 clear_scr()
+
+ask_icon = input("Voulez vous activer les icones ? (si votre police d'écriture vous le permet) O(ui)/n(on)")
+enable_icons = True if (ask_icon == "Oui" or ask_icon == "O" or ask_icon=="oui") else False
+clear_scr()
+
 print("1- Apuyez sur le retour à la ligne pour commencer")
 print("2- Calculez le produit de la matrice puis réapuyez sur 'Entrer'\n pour afficher la correction")
 print("3- Si vous voulez quitter, vous pouvez soit appuyer sur Ctrl+C")
 print("Ou bien en appuyant sur 'q' puis 'Entrer' après avoir vu la correction")
+print("Les icônes sont " + "Activés" if enable_icons else "Désactivés")
 print("Bonnes révisions")
 
-ask_icon = input("Voulez vous activer les icones ? (si votre police d'écriture vous le permet) O(ui)/n(on)")
-enable_icons = True if (ask_icon == "Oui" or ask_icon == "O" or ask_icon=="oui") else False
 
 def new_random_matrice(row:int, col:int)->list:
     lst = []
