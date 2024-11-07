@@ -15,6 +15,9 @@ print("3- Si vous voulez quitter, vous pouvez soit appuyer sur Ctrl+C")
 print("Ou bien en appuyant sur 'q' puis 'Entrer' après avoir vu la correction")
 print("Bonnes révisions")
 
+ask_icon = input("Voulez vous activer les icones ? (si votre police d'écriture vous le permet) O(ui)/n(on)")
+enable_icons = True if (ask_icon == "Oui" or ask_icon == "O" or ask_icon=="oui") else False
+
 def new_random_matrice(row:int, col:int)->list:
     lst = []
     # for each line
@@ -30,13 +33,21 @@ def print_matrice(matrice:list)->None:
     for i, row in enumerate(matrice):
         end_of_loop = (i == len(matrice)-1)
         # print opening brackets
-        print( "⎡" if i==0 else "⎣" if end_of_loop else "⎢", end="")
+        if enable_icons:
+            print( "⎡" if i==0 else "⎣" if end_of_loop else "⎢", end="")
+        else:
+            print ("[")
+        
         for j, col in enumerate(row):
             start_of_line = (j == 0)
             # printing matrix elements
             print(f"{col:>4}" if not start_of_line else f"{col:>3}", end="")
+            
         # print closing brackets
-        print("", "⎤" if i==0 else "⎦" if i==len(matrice)-1 else "⎥")
+        if enable_icons:
+            print("", "⎤" if i==0 else "⎦" if i==len(matrice)-1 else "⎥")
+        else:
+            print("]")
     return None
 
 
