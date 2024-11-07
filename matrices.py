@@ -10,7 +10,7 @@ if sys.platform == "win32":
 
 clear_scr()
 
-ask_icon = input("Voulez vous activer les icones ? (si votre police d'écriture vous le permet) O(ui)/n(on)")
+ask_icon = input("Voulez vous activer les icones ? (si votre police d'écriture vous le permet) O(ui)/n(on) ?\n")
 enable_icons = True if (ask_icon == "Oui" or ask_icon == "O" or ask_icon=="oui") else False
 clear_scr()
 
@@ -40,7 +40,7 @@ def print_matrice(matrice:list)->None:
         if enable_icons:
             print( "⎡" if i==0 else "⎣" if end_of_loop else "⎢", end="")
         else:
-            print ("[")
+            print ("[", end="")
         
         for j, col in enumerate(row):
             start_of_line = (j == 0)
